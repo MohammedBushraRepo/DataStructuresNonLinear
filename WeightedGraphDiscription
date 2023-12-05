@@ -1,0 +1,23 @@
+***Weighted Graphs
+Earlier, we talked about weighted graphs. If the edges of our graph have weights, we say we have a
+weighted graph. These weights can represent factors such as cost, distance, complexity, literally anything.
+A common application of weighted graphs is in finding the shortest path between two nodes. Let's say
+these nodes represent different areas in a city. And the weights on these edges represent the distance or
+traffic conditions between these areas. Soon I will show you an algorithm to find the shortest path
+between two nodes. But before we get there, I want you to implement a weighted graph. So create a new
+class called weighted graph. In this class, we should have a private node class just like before, but we
+
+should also have an edge class. This classroom presents the edge between two nodes. So you should
+
+have three fields. From and To these are both node objects and weight which is going to be an integer for
+
+not only Implement two operations in the weighted graph class, add node and add edge. Just remember
+
+this method should have three parameters from to, and weight. Also, I wanted to make this graph an undirected graph.
+
+In an undirected graph, our edges don't have a direction.
+
+So if you had an edge between A and B with a given weight, we should also have an edge from B to A with the same weight.
+
+So spend 10 to 15 minutes on this and then come back here.
+

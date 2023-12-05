@@ -1,0 +1,210 @@
+1
+Tries are another kind of trees, but they're not binary trees. So each child can have several nodes. The
+2
+name trie actually comes from retrieval. Some people say trie others call it trees. The other names for
+
+3
+tries are digital ray dex or prefix trees. So as I told you earlier, we use tries to implement auto completion.
+
+4
+For example, when you type a search query on Google, you'll see Google quickly suggesting a few
+
+5
+phrases that start with what do you have typed? That I'm not sure if they have implemented this using
+
+6
+tries, but auto completion is one of the key applications of tries. I might ask why not use an area of strings
+
+7
+and return the items that start with a search query for two reasons. The first reason is that if you have a
+
+8
+large number of words or search queries, this array is going to waste a lot of space because a lot of words
+
+9
+have the same prefix. For example, pig, picky pickle, picture picnic, all start with pic. That is the prefix the
+
+10
+reason is that looking at words that start with a prefix using arrays is relatively slow, we have to go
+
+11
+through every word and check to see if the word starts with our prefix. Now there are ways we can
+
+12
+optimize this. But overall, arrays are not ideal for solving this problem. That's where we use tries, tries
+
+13
+allow us to store thousands or even millions of words in minimal space and provide super fast look ups. So
+
+14
+in this trial, we have a few words and I guess we can already see them, we have bag boy and cat. Now
+
+15
+the interesting thing is that both bag and boy share the same prefix that is B, and we have started in a
+
+16
+single place on liquor is we're not duplicating characters in this structure. Similarly, if you want to store
+
+17
+the word baggage in this try, we just need to extend the bag branch, both bag and baggage sharing the
+
+18
+same prefix. Now in this example, we have a tiny try, but as you can imagine, each node in this try can
+
+19
+have several children, as many as the letters in the English language So in English, we have 26 letters. And
+
+20
+that means each node can have up to 26 children, okay? Also the root node is always now or an empty
+
+21
+character, because English words can start with any of the 26 letters, we cannot have 26 roots in a tree,
+
+22
+our trees always have one route. So we treat this room as an empty room and uses children to indicate
+
+23
+the beginning of different words. Okay. Now let's say we want to look up a word like back in this trie.
+
+24
+What is the time complexity of this operation? We start from the root node, does this node have be as a
+
+25
+child? Sure it does. So we go through this child. Does this node have a trial for a short it does? So we go
+
+26
+through this note and repeat. Does this node have a child for g? Yes, he does. And our search is complete.
+
+27
+Now what if I try had a million words or nodes in it? Looking up that would still take the same amount of
+
+28
+time. We need three comparisons to find this word. So the time complexity of tis operation is o of l where
+
+29
+L is the length of the word We're searching for. technically this is constant time. But it's not necessarily
+
+30
+well one. Because the cost is dependent on the length of the word we're looking at. It can vary from one
+
+31
+word to another, but it doesn't depend on the number of nodes in this trie. If the longest word in this trie is
+
+32
+20 characters long, the time complexity of the search operation is all of 20 in the worst case scenario.
+
+33
+Now, adding aboard to this trie also runs in O of L. For each letter in a given word, we have to walk down our
+
+34
+tree. If the current character doesn't exist, we add it to our tree. The number of operations involved here
+
+35
+
+is equal to the number of characters and the word we're inserting. So O of L, By the same token, removing a
+
+36
+
+word also runs in O of L. So that's how tries work. Before jumping into coding. Let's do a quick exercise.
+
+*********************************************************************
+*** Build a Trie
+1
+00:00:02,070 --> 00:00:07,260
+Over the next few videos, we're going to build a trie from scratch. So let's see how the insert operation
+2
+00:00:07,260 --> 00:00:13,500
+works. Let's say you want to insert the word cat in a trie. We started with declaring a variable called
+3
+00:00:13,500 --> 00:00:19,860
+current that points to the root node of this trie, as I told you before, tries always have a root node that is
+4
+00:00:19,860 --> 00:00:25,980
+empty. So we look at the root node and ask, do you have a child for See? If not, we're going to create that
+5
+00:00:25,980 --> 00:00:31,620
+child. And then we said the current to point to that child node. Now we asked this node, do you have a
+6
+00:00:31,620 --> 00:00:37,350
+child for a? Once again, if not, we're going to create that child and then set the current to point to that
+7
+00:00:37,350 --> 00:00:42,990
+triangle. And one last time you asked the current node, do you have a child 14? If not, we're going to
+8
+00:00:42,990 --> 00:00:48,780
+create the child node and set the current to point to that node. Now finally, we should mark this node as
+9
+00:00:48,780 --> 00:00:54,810
+the end of the word because these characters could easily be a prefix for In other words, like catch. So
+10
+00:00:54,810 --> 00:00:59,820
+later in the future, when we traverse our trie, you want to be able to easily figure out what boards we
+11
+00:00:59,820 --> 00:01:06,300
+have stored in our tie. That is why we have to mark certain nodes as the end of a word. So that's the basic
+12
+00:01:06,300 --> 00:01:12,630
+idea. In the future if you want to insert the word can, once again we start from the roots of a tree, we walk
+13
+00:01:12,630 --> 00:01:19,440
+down the street, but in this case, we already have notes for CNA, so all we have to do is to append n as a
+14
+00:01:19,440 --> 00:01:28,170
+child of a. Okay. Now to implement this, we need a couple of classes. One is the trie class, and a node
+15
+00:01:28,170 --> 00:01:33,300
+which is a private class in this trie. In this node class, we're going to have a few fields. One of them is
+16
+00:01:33,300 --> 00:01:38,520
+value, which is going to be a character. The other is children. Now there are two ways to implement the
+17
+00:01:38,520 --> 00:01:44,100
+children. We can use an array or hash map we're going to look at both ways. But for the starter, I want
+18
+00:01:44,100 --> 00:01:52,560
+you to implement this using an array. So this children field should be a note array with the length of 26
+19
+00:01:52,560 --> 00:01:59,340
+because in English we have 26 letters. So each child node can represent one letter in English ABC, the all
+20
+00:01:59,340 --> 00:02:06,780
+the way to We also need another field is and the word which is going to be a Boolean. And for now we
+21
+00:02:06,780 --> 00:02:13,320
+just want to implement the insert operation which takes a word, which is a strength. Now when using an
+22
+00:02:13,320 --> 00:02:22,080
+array, we need to figure out at which index, we have to store a given child like D or G. That is very easy. We
+23
+can calculate the index using this expression. Let's say CH is the character that you want to store, we
+24
+write CH minus A. So in Java, when we subtract two characters from each other, Java will convert these
+25
+characters to their numeric representation. So internally, a lowercase a is represented using 97. Let's say
+26
+we want to store D, the new record presentation of D is 100. So 100 minus 97 equals three. So we should
+27
+store D at index three. So go ahead and spend 15 to 20 minutes on this and Come back. See my solution.
+
+Trie
+    Node
+           value:Char
+           children:Node(26)
+           isEndOfWord:boolean
+
+insert(word : String)
+index = ch - 'a' => 100 - 97
+
+
+*******************************************
+Auto Completion
+
+         c          e
+         a          g
+         r          g
+      d     f
+            u
+            l
+we should use Pre-Order traversal
+
+

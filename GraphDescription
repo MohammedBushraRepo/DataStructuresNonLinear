@@ -1,0 +1,28 @@
+* what Are Graphs
+
+We use graph to represent connected objects such as the routers in a network or people on a social
+media platform.
+Using a graph, you can see how people are connected, and how strong these connections are.
+Just like trees, graphs consist of nodes and edges.
+In fact, mathematically speaking, a tree is a kind of a graph.
+It's a graph without any cycles. Also, here, we don't have a root note.
+So here we have a graph with four nodes, and six edges or lines.
+ These nodes are also called vertices, which is the plural of vertex. Vertex is an older term.
+So these nodes can be connected to any other nodes. We don't
+have a limitation in terms of how many connections or ages we can have for one node. If two nodes are
+directly connected, we say they're adjacent or neighbors. So here, john, I'm Bob are adjacent or neighbors
+with John and Sam aren't because they're not directly connected. If these edges have a direction, we say
+we have a directed graph. So in this graph, john He's connected to Bob. But the opposite is not true. This
+is similar to how Twitter works. If you follow someone, there is a connection from your account to their
+account, but not the other way around unless they follow you as well. Undirected graphs are like
+Facebook and LinkedIn. If you add someone as a friend, there will be a line or a connection between the
+two of you, and this connection doesn't have a direction. Now, these edges can also have a weight. We use
+this weights to represent how strong a connection is. For example, on a social media platform, if two
+people interact a lot, we can put a higher weight on their connection. Later, we can show their best
+friends by finding the neighboring node with the highest weights,. Another application of graphs is in
+finding the shortest path between two nodes. For example, we can use a graph to represent how different
+cities or areas are connected. The weights we put on these edges can represent the distance traveling
+cost or traffic conditions. Later in the section, I will show you how to implement an algorithm to find the
+shortest path Between two nodes. It's very interesting. So this is the basics of graphs. Next we're going to
+talk about various ways to implement a graph.
+

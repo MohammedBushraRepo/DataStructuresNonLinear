@@ -1,0 +1,32 @@
+
+a heap is special type of trees with  properties
+1- complete tree :
+which is mean every level except potentially the last level completely filled
+and levels are filled from left to the right
+2- Heap property :
+which is mean that value of each is >= to it's children
+3-Max heap :
+because the root node will have the biggest value , when we go down on the tree the values gets smaller
+
+*Heaps Applications:
+1-Sorting Data(HeapSort)
+2-Graph algorithms(Shortest path)
+3- Priority Queues
+4- finding the Kth smallest and largest value
+
+
+* Operations and runtime complexity
+1- in Max Heap large values bubble up and move to the top became root
+if you have min Heap small values will bubble up
+
+2- the time complexity for this operation
+
+
+***************************************************************
+
+heapyfi algorithm
+heapyfi means transforming an array into a heap in place
+1- you need a for loop and iterate over the array
+2-if the item is not on the right position you need to bubble it down
+3-compare the base item with both it's children is >= both its children
+
